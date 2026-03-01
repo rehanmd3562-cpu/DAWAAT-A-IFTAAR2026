@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dawaat-e-Iftaar |mohammed Bismillah &  Sons</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:wght@400;600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            color: #e8e4e0;
+            background: linear-gradient(160deg, #0f1412 0%, #1a241c 22%, #152520 45%, #1c2d28 70%, #14221e 100%);
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:  
+                linear-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            z-index: -1;
+            width: 120%;
+            height: 120%;
+            top: -10%;
+            left: -10%;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.1) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        
+        .invitation {
+            max-width: 520px;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(145deg, rgba(26, 36, 32, 0.85) 0%, rgba(21, 30, 28, 0.75) 50%, rgba(28, 45, 40, 0.82) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.45), 0 0 0 1px rgba(212, 175, 55, 0.06) inset, 0 0 80px rgba(212, 175, 55, 0.1);
+        }
+        
+        .bismillah {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+        
+        .hosts {
+            font-size: 1.25rem;
+            color: #c9b896;
+            margin-bottom: 2rem;
+        }
+        
+        .details {
+            text-align: left;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(15, 20, 18, 0.7) 0%, rgba(26, 36, 32, 0.5) 100%);
+            border-radius: 12px;
+            border-left: 4px solid #d4af37;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+        }
+        
+        .details p {
+            margin: 0.5rem 0;
+            font-size: 1.05rem;
+        }
+        
+        .details strong {
+            color: #d4af37;
+            display: inline-block;
+            min-width: 80px;
+        }
+        
+        .location {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(15, 20, 18, 0.7) 0%, rgba(26, 36, 32, 0.5) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+        }
+        
+        .location h3 {
+            color: #d4af37;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .location .address {
+            color: #e8e4e0;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+        
+        .location .address a {
+            color: #d4af37;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        
+        .location .address a:hover {
+            color: #e8c952;
+            border-bottom-color: #d4af37;
+        }
+        
+        .location .location-url {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .location .location-url a {
+            color: #7eb8da;
+            word-break: break-all;
+        }
+        
+        .location .location-url a:hover {
+            color: #9dd4f5;
+        }
+        
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, #1a3a3a 0%, #0f2528 100%);
+            color: #d4af37;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+            margin-top: 0.5rem;
+        }
+        
+        .map-link:hover {
+            background: linear-gradient(135deg, #224a4a 0%, #152d30 100%);
+            color: #e8c952;
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        
+        .map-link svg {
+            width: 1.2rem;
+            height: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .closing {
+            margin-top: 2rem;
+            font-style: italic;
+            color: #c9b896;
+        }
+        
+        .ramadan-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2em;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .ramadan-bg span {
+            font-family: 'Amiri', serif;
+            font-size: clamp(3rem, 12vw, 7rem);
+            font-weight: 700;
+            color: rgba(212, 175, 55, 0.07);
+            white-space: nowrap;
+            transform: rotate(-8deg);
+            user-select: none;
+            letter-spacing: 0.02em;
+        }
+        
+        .ramadan-bg .ar {
+            position: static;
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            color: rgba(212, 175, 55, 0.05);
+            transform: rotate(6deg);
+        }
+        
+        .help-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .help-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(26, 36, 32, 0.9) 0%, rgba(21, 30, 28, 0.9) 100%);
+            color: #c9b896;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        
+        .help-btn:hover {
+            color: #d4af37;
+            border-color: rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, rgba(28, 45, 40, 0.95) 0%, rgba(26, 36, 32, 0.95) 100%);
+        }
+        
+        .help-btn svg {
+            width: 1rem;
+            height: 1rem;
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(26, 36, 32, 0.98);
+            color: #d4af37;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            font-size: 0.9rem;
+            z-index: 1000;
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        
+        @media print {
+            body::before, body::after, .ramadan-bg { display: none !important; }
+            body { background: #1a241c; }
+            .invitation { box-shadow: none; border: 1px solid #d4af37; background: #1a241c; }
+            .help-actions { display: none !important; }
+            .toast { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ramadan-bg" aria-hidden="true">
+        <span>Ramadan Kareem</span>
+        <span class="ar">رَمَضَان كَرِيم</span>
+    </div>
+    <div class="invitation">
+        <p class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+        <h1>Dawaat-e-Iftaar</h1>
+        <p class="hosts">Hosted by mohammed Bismillah &  Sons</p>
+        
+        <div class="details">
+            <p><strong>Date:</strong> 2/3/2026</p>
+            <p><strong>Time:</strong> After Maghrib  6:30 PM</p>
+        </div>
+        
+        <p>You are cordially invited to join us for a blessed evening of Iftaar.</p>
+        
+        <div class="location">
+            <h3> location</h3>
+            <div class="address">
+                Hyderabad, Telangana, India (500001)
+            </div>
+            <div class="location-url">
+                <a class="map-link" href="https://maps.app.goo.gl/YkBweVaqs8crRQo57" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Open in Google Maps
+                </a>
+            </div>
+        </div>
+        
+        <p class="closing">We look forward to your presence, InshaAllah.</p>
+        
+        <div class="help-actions">
+            <button type="button" class="help-btn" id="copyLinkBtn" title="Copy location link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy link
+            </button>
+            <button type="button" class="help-btn" id="printBtn" title="Print or save as PDF">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path></svg>
+                Print
+            </button>
+            <button type="button" class="help-btn" id="shareBtn" title="Share invitation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                Share
+            </button>
+        </div>
+    </div>
+    
+    <div class="toast" id="toast" aria-live="polite"></div>
+    
+    <script>
+        (function () {
+            var LOCATION_URL = 'https://maps.app.goo.gl/YkBweVaqs8crRQo57';
+            var INVITATION_TITLE = 'Dawaat-e-Iftaar | Mohammed Bismillah & Sons';
+            
+            var toastEl = document.getElementById('toast');
+            var copyBtn = document.getElementById('copyLinkBtn');
+            var printBtn = document.getElementById('printBtn');
+            var shareBtn = document.getElementById('shareBtn');
+            
+            function showToast(message) {
+                if (!toastEl) return;
+                toastEl.textContent = message;
+                toastEl.classList.add('show');
+                setTimeout(function () {
+                    toastEl.classList.remove('show');
+                }, 2500);
+            }
+            
+            function copyToClipboard(text) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    return navigator.clipboard.writeText(text);
+                }
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try {
+                    document.execCommand('copy');
+                    return Promise.resolve();
+                } finally {
+                    document.body.removeChild(ta);
+                }
+            }
+            
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function () {
+                    copyToClipboard(LOCATION_URL).then(function () {
+                        showToast('Location link copied!');
+                    }).catch(function () {
+                        showToast('Could not copy. Please copy from the map link.');
+                    });
+                });
+            }
+            
+            if (printBtn) {
+                printBtn.addEventListener('click', function () {
+                    window.print();
+                    showToast('Print dialog opened.');
+                });
+            }
+            
+            if (shareBtn) {
+                shareBtn.addEventListener('click', function () {
+                    if (navigator.share) {
+                        navigator.share({
+                            title: INVITATION_TITLE,
+                            text: 'You are invited to Dawaat-e-Iftaar. Location: ' + LOCATION_URL,
+                            url: window.location.href
+                        }).then(function () {
+                            showToast('Shared successfully!');
+                        }).catch(function (err) {
+                            if (err.name !== 'AbortError') {
+                                copyToClipboard(window.location.href).then(function () {
+                                    showToast('Link copied. Share it manually.');
+                                });
+                            }
+                        });
+                    } else {
+                        copyToClipboard(window.location.href).then(function () {
+                            showToast('Page link copied! Share it anywhere.');
+                        }).catch(function () {
+                            showToast('Share not supported. Copy the page URL from the address bar.');
+                        });
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
